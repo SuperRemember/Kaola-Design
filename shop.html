@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="stylesheet" href="css/shop.css" />
+		<script type="text/javascript" src="js/jquery-3.4.1.js" ></script>
+		
+	</head>
+	<body>
+	<header class="headerclass">
+		<div class="Nav">
+			<!--左侧头部导航栏-->
+			<div class="leftnav">
+				<span>考拉欢迎你！</span>
+				<a href="login.html" id="tran"><span id="name">登录</span></a>
+				<span class="sep">|</span>
+				<a href="register.html">免费注册</a>
+			</div>
+			<div class="leftnav2">
+				<a>手机考拉</a>
+				<div class="kaolaimg_container">
+					<div class="header_kaolaimg">
+						<img src="img/kaola.png" />
+					</div>
+					<div class="kaolaimg_dec">
+						<a>新人下载app</a><br />
+						<a>领10元无门槛红包</a>
+					</div>
+				</div>
+			</div>
+			<!--右侧头部导航栏-->
+			<div class="rightnav">
+				<ul>
+					<li class="sign"><a>每日签到</a></li>
+					<li class="order"><a>我的订单</a></li>
+					<li class="personal">
+						<a>个人中心</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>我的优惠卷</a></li>
+							<li><a>我的红包</a></li>
+							<li><a>我的考拉豆</a></li><hr width="90%"/>
+							<li><a>账号管理</a></li>
+							<li><a>我的实名认证</a></li>
+							<li><a>我收藏的商品</a></li>
+							<li><a>我关注的品牌</a></li><hr width="90%" />
+						</ul>
+					</li>
+					<li class="service">
+						<a>客户服务</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>联系客服</a></li>
+							<li><a>帮助中心</a></li>
+							<li><a>知识产权保护</a></li>
+							<li><a>规则中心</a></li>
+						</ul>
+					</li>
+					<li class="recharge">
+						<a>充值中心</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>话费充值</a></li>
+							<li><a>游戏充值</a></li>
+							<li><a>AppStore充值</a></li>
+						</ul>
+					</li>
+					<li class="customer">
+						<a>消费者权益</a>
+						<i class="jiantou2"></i>
+						<ul>
+							<li><a>消费者告知书</a></li>
+						</ul>
+					</li>
+					<li class="more">
+						<a>更多</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>收藏本站</a></li>
+							<li><a>新浪微博</a></li>
+							<li><a>微信公众号</a></li>
+							<li><a>易信公众号</a></li>
+							<li><a>招商合作</a></li>
+							<li><a>考拉招聘</a></li>
+						</ul>
+					</li>
+					<li class="video"><a>视频内容</a></li>
+					<li class="video"><a href="login.html" id="logout"><span id="name">退出登录</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<script type="text/javascript" src="js/shop.js" ></script>
+		
+		<!--头部图片-->
+		<div class="title">
+			<a onclick="indexgo()"><img src="img/kaolacom.png" alt="logo" class="logo" /></a>
+			<img src="img/way.png" class="way" />
+		</div>
+
+		<!--购物车相关板块-->
+		<div class="shopCar">
+			
+			<div class="shopCar_head">
+				<div class="col col2">商品信息</div>
+				<div class="col col3">单价（元）</div>
+				<div class="col col4">数量</div>
+				<div class="col col5">金额（元）</div>
+				<div class="col col6">操作</div>
+			</div>
+			
+			<div class="goods">
+				<div class="nogoods1">
+					还没登录哦~<a style="font-size: 18px;color: #717171;" href="login.html">去登录</a>
+				</div>
+				<div class="nogoods">
+					当前购物车为空
+				</div>
+				<div class="mygoods">
+					<div class="goodsshuxing">
+						<div class="goodsimg">
+							<img src="img/smallaj1photo1.jpg" />
+						</div>
+						<div class="goodsmsg">
+							【限量预售】耐克Nike Air Jordan 1 High Zoom R2T <br/>&nbsp;&nbsp;&nbsp;小Dior AJ1白灰红蓝幻底 篮球鞋CK6637-104
+						</div>
+					</div>
+					<div class="danjia">
+						￥<a style="color: black;">2889.00</a>
+					</div>
+					<div class="numberbox">
+						<span class="numberbox_wrap">
+							<a class="reduce">-</a>
+							<input type="text" class="numberbox2" value="0"/>
+							<a class="add">+</a>
+						</span>
+					</div>
+					<div class="price">
+						￥<a style="color: black;">2889.00</a>
+					</div>
+					<div class="delete">
+						<a class="buybtn" onclick="deletegoods()">删除</a>
+					</div>
+				</div>
+			</div>
+			
+			<div style="position: relative; width: 1088px;" id="totalbar" class="m-total f-cb">
+		        <div class="ttbar">
+			        <div class="lt">
+			            <input class="u-chk" id="selectAll" name="selectAll" type="checkbox"><label class="lab" for="selectAll">全选</label><b class="opt">删除选中商品</b>
+			        </div>
+		            <div class="rt">
+		            	<p class="allgoods">已选商品 <em class="num" id="mallCount">0</em> 件 <span class="itm">总价(不含运费)：<em class="num" id='allPrice'>0.00</em></span></p>
+		            	<p class="allmoney">活动优惠：-￥<a class="itm1">0.00</a><span class="itm">商品应付总计：￥<a class="itm2">0.00</a></span><span class="itm">订单邮费：￥<a class="itm3">0.00</a></span></p>
+		            	<a class="gobuy ">去结算</a>
+		          	</div>
+		        </div>
+	      	</div>
+			
+		</div>
+		<script type="text/javascript" src="js/shop.js" ></script>
+		
+		<!--底部信息代码段-->
+		<div class="footer">
+			<div class="first_lastfoot">
+				<a>隐私政策</a>
+				<span>-</span>
+				<a>考拉海购</a>
+				<br />
+			</div>
+			<div class="second_lastfoot">
+				<span>增值电信业务经营许可证：浙B2-20160288</span>
+				<span>自营经营者信息 </span>
+				<span>（浙）网械平台备字[2018]第00007号</span>
+			<br />
+			</div>
+			<div class="third_lastfoot">
+				<a><img src="img/Policestation.png" style="display:"";"/></a>
+				<a><span>浙公网安备 33010802002216号</span></a>
+				<span>阿里巴巴版权所有©2003-2020</span>
+				<a><span>互联网药品信息服务资格证书编号（浙）-2017-0027</span></a>
+				<a><span>浙ICP备16011229号</span></a>
+			</div>
+			<div class="fourth_lastfoot">
+				<span><a><img src="img/Idverification.png"/></a></span>
+				<a><img src="img/Policestation1.png"/></a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,3298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>网易考拉</title>
+		<link rel="stylesheet" href="css/indexcss.css" />
+		<script type="text/javascript" src="js/jquery-3.4.1.js" ></script>
+		
+	</head>
+	<body>
+	<!--侧边悬浮导航栏-->
+	<div>
+		<ul class="indexs">
+			<li>★口碑爆款★</li>
+			<li>99元任选2件</li>
+			<li>大牌满减</li>
+			<li>美容彩妆</li>
+			<li>家居个护</li>
+			<li>母婴儿童</li>
+			<li>美食保健</li>
+			<li>工厂店精选</li>
+			<li><a href="#top">TOP</a></li>
+		</ul>
+	</div>
+	<!--侧边悬浮导航栏js代码段-->
+	<script>
+			$(function(){
+				$(window).scroll(function(){
+					//控制是否显示
+					//console.log($(".Explosive").position().top-$(window).scrollTop())  查看相减的值
+					if($(".Explosive").position().top-$(window).scrollTop()<300){		//
+						$(".indexs").show()
+					}else{
+						$(".indexs").hide()
+					};
+					
+					//控制切换高亮
+					$(".middlegoods>div").each(function(){								//循环middlegoods标签中的每一个div
+						if($(this).position().top-$(window).scrollTop()<200){
+							$(".indexs li").eq($(this).index()).addClass("active").siblings(".active").removeClass("active")
+							//选择当前.index li，添加class名为active，再将同一级别下的其他含有class为active的li标签的class删除
+						}
+					})
+				})
+				
+				//控制点击跳转到相应的模块
+				$(".indexs li").click(function(){
+					$("html,body").animate({
+						scrollTop:$(".middlegoods>div").eq($(this).index()).position().top-30		//跳转当前点击模块
+					},300,function(){																//300毫秒完成该动作
+						
+					})
+				})
+			})
+		</script>
+	<!--头部导航栏-->
+	<header class="headerclass">
+		<div class="Nav">
+			<!--左侧头部导航栏-->
+			<div class="leftnav">
+				<span>考拉欢迎你！</span>
+				<a href="login.html" id="tran"><span id="name">登录</span></a>
+				<span class="sep">|</span>
+				<a href="register.html">免费注册</a>
+			</div>
+			<div class="leftnav2">
+				<a>手机考拉</a>
+				<div class="kaolaimg_container">
+					<div class="header_kaolaimg">
+						<img src="img/kaola.png" />
+					</div>
+					<div class="kaolaimg_dec">
+						<a>新人下载app</a><br />
+						<a>领10元无门槛红包</a>
+					</div>
+				</div>
+			</div>
+			<!--右侧头部导航栏-->
+			<div class="rightnav">
+				<ul>
+					<li class="sign"><a>每日签到</a></li>
+					<li class="order"><a>我的订单</a></li>
+					<li class="personal">
+						<a>个人中心</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>我的优惠卷</a></li>
+							<li><a>我的红包</a></li>
+							<li><a>我的考拉豆</a></li><hr width="90%"/>
+							<li><a>账号管理</a></li>
+							<li><a>我的实名认证</a></li>
+							<li><a>我收藏的商品</a></li>
+							<li><a>我关注的品牌</a></li><hr width="90%" />
+							<li><a>售后管理</a></li>
+						</ul>
+					</li>
+					<li class="service">
+						<a>客户服务</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>联系客服</a></li>
+							<li><a>帮助中心</a></li>
+							<li><a>知识产权保护</a></li>
+							<li><a>规则中心</a></li>
+						</ul>
+					</li>
+					<li class="recharge">
+						<a>充值中心</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>话费充值</a></li>
+							<li><a>游戏充值</a></li>
+							<li><a>AppStore充值</a></li>
+						</ul>
+					</li>
+					<li class="customer">
+						<a>消费者权益</a>
+						<i class="jiantou2"></i>
+						<ul>
+							<li><a>消费者告知书</a></li>
+						</ul>
+					</li>
+					<li class="more">
+						<a>更多</a>
+						<i class="jiantou"></i>
+						<ul>
+							<li><a>收藏本站</a></li>
+							<li><a>新浪微博</a></li>
+							<li><a>微信公众号</a></li>
+							<li><a>易信公众号</a></li>
+							<li><a>招商合作</a></li>
+							<li><a>考拉招聘</a></li>
+						</ul>
+					</li>
+					<li class="video"><a>视频内容</a></li>
+					<li class="video"><a href="login.html" id="logout"><span id="name">退出登录</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	
+	<!--考拉logo图片、搜索框、购物车-->
+	<div class="afterheader"  id="top">
+		<img class="kaolaphoto" src="img/kaolaphoto.png"/>
+	
+		<!--搜索框-->
+		<div class="searchbox">
+				<input type="text" placeholder="S•S•S专辑"/>
+				<div class="searchboximg">
+					<img src="img/searchlogo.png" onclick="change()" />
+				</div>
+		</div>
+		
+		<!--购物车图标-->
+		<div class="ShoppingCart" onclick="goshop()">
+			<a style="text-decoration: none;color: black;">
+			<img src="img/shoppingCart.png">
+			<p>购物车</p>
+			</a>
+		</div>
+	</div>
+	
+	<!--三级菜单-->
+	<div class="menu">
+		<div class="all_categories"><p>所有分类</p>
+			<div class="all_categories_next">
+				<ul>
+					<!--美容彩妆板块-->
+					<li class="face">美容彩妆
+						<div class="face_next">
+							<!--文字部分-->
+							<div class="face_next_text">
+								<div class="face_next_text_one">
+									<a>护肤</a><br />
+									<hr/>
+									<ul>
+										<li>洁面</li>
+										<li style="color: #666;">卸妆</li>
+										<li>爽肤水</li>
+										<li>面霜</li>
+										<li style="color: #666;">眼部护理</li>
+									</ul>
+									<ul>
+										<li>精华</li>
+										<li>乳液/凝胶</li>
+										<li style="color: #666;">手/足护理</li>
+										<li style="color: #666;">唇部护理</li>
+									</ul>
+									<ul>
+										<li>男士面膜</li>
+										<li style="color: #666;">精油芳疗</li>
+										<li style="color: #666;">面部护肤</li>
+									</ul>
+									<ul>
+										<li>男士护肤</li>
+									</ul>
+								</div>
+								<div class="face_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">面膜</a><br />
+									<hr/>
+									<ul>
+										<li>Dr.Jart+</li>
+										<li>春雨</li>
+										<li>香蒲丽</li>
+										<li>森田药妆</li>
+									</ul>
+									<ul>
+										<li>丽得姿</li>
+										<li>其他面膜</li>
+									</ul>
+								</div>
+								<div class="face_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">彩妆</a><br />
+									<hr/>
+									<ul>
+										<li>BB霜/CC霜</li>
+										<li style="color: #666;">唇膏/唇彩</li>
+										<li style="color: #666;">隔离/妆前</li>
+										<li style="color: #666;">粉底</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">粉饼/叁分</li>
+										<li>美甲</li>
+										<li>眼线</li>
+										<li style="color: #666;">眉笔</li>
+										<li>睫毛膏</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">眼影</li>
+										<li style="color: #666;">腮红</li>
+										<li style="color: #666;">遮瑕</li>
+										<li style="color: #666;">高光/修颜</li>
+										<li>香水</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">化妆工具</li>
+										<li style="color: #666;">彩妆工具</li>
+									</ul>
+								</div>
+								<div class="face_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">防晒修复</a><br />
+									<hr/>
+									<ul>
+										<li>安耐晒</li>
+										<li>娜丽丝</li>
+										<li>RE.CIPE</li>
+										<li>碧柔</li>
+									</ul>
+									<ul>
+										<li style="color: red;">水宝宝</li>
+										<li>香蕉船</li>
+										<li>Ultrasun</li>
+										<li>苏菲娜</li>
+									</ul>
+									<ul>
+										<li>高丝</li>
+										<li>其他防晒</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="face_next_photo">
+								<!--顶部图片部分-->
+								<div class="face_next_photo_top">
+									<img src="img/SK-II_photo.jpg"/>
+									<img src="img/ESTEE_LAUDER_photo.jpg" />
+									<img src="img/LANCOME_photo.jpg" />
+									<img src="img/Kiehl's_photo.jpg" />
+									<img src="img/CLINIQUE_photo.jpg" />
+									<img src="img/POLA_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="face_next_photo_bottom">
+									<img src="img/get1_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--母婴儿童板块-->
+					<li class="mom">母婴儿童
+						<div class="mom_next">
+							<!--文字部分-->
+							<div class="mom_next_text">
+								<div class="mom_next_text_one">
+									<a>奶粉</a><br />
+									<hr/>
+									<ul>
+										<li>爱他美</li>
+										<li>牛栏</li>
+										<li>a2</li>
+										<li>喜宝</li>
+										<li>贝拉米</li>
+									</ul>
+									<ul>
+										<li>惠氏</li>
+										<li>美素佳儿</li>
+										<li style="color: #666;">Hero Baby</li>
+										<li style="color: #666;">美林</li>
+									</ul>
+									<ul>
+										<li>雅培</li>
+										<li style="color: #666;">美赞臣</li>
+										<li style="color: #666;">雀巢</li>
+										<li>合生元</li>
+										<li style="color: #666;">满趣健</li>
+									</ul>
+									<ul>
+										<li>Pre段</li>
+										<li>1段</li>
+										<li>2段</li>
+										<li style="color: #666;">3段</li>
+										<li style="color: #666;">5段(2+)</li>
+									</ul>
+								</div>
+								<div class="mom_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">纸尿裤/拉拉裤</a><br />
+									<hr/>
+									<ul>
+										<li>花王</li>
+										<li>尤妮佳</li>
+										<li>大王</li>
+										<li>好奇</li>
+										<li style="color: #666;">帮宝适</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">妈咪宝贝</li>
+										<li style="color: #666;">丽贝乐</li>
+										<li style="color: #666;">妮飘</li>
+										<li style="color: #666;">姆明一族</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">NB号</li>
+										<li style="color: #666;">S号</li>
+										<li style="color: #666;">M号</li>
+										<li style="color: #666;">L号</li>
+										<li style="color: #666;">XL号</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">XXL号</li>
+									</ul>
+								</div>
+								<div class="mom_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">营养辅食</a><br />
+									<hr/>
+									<ul>
+										<li>辅食泥</li>
+										<li>米粉迷糊</li>
+										<li>泡芙</li>
+										<li style="color: #666;">溶溶豆</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">营养品</li>
+										<li style="color: #666;">饼干</li>
+										<li style="color: #666;">肉松面仔</li>
+										<li style="color: #666;">调味品</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">其他辅食</li>
+										<li style="color: #666;">其他零食</li>
+									</ul>
+								</div>
+								<div class="mom_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">宝宝用品/玩具图书</a><br />
+									<hr/>
+									<ul>
+										<li>洗漱护肤</li>
+										<li>护理</li>
+										<li>喂养</li>
+										<li style="color: #666;">出行</li>
+										<li style="color: #666;">清洁消毒</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">图书绘本</li>
+										<li style="color: #666;">积木拼插</li>
+										<li style="color: #666;">早教益智</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">爬行学步</li>
+										<li style="color: #666;">其他玩具</li>
+										<li style="color: #666;">宝宝家居</li>
+										<li style="color: #666;">小家电</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="mom_next_photo">
+								<!--顶部图片部分-->
+								<div class="mom_next_photo_top">
+									<img src="img/Aptamil_photo.jpg"/>
+									<img src="img/pigeon_photo.jpg" />
+									<img src="img/merries_photo.jpg" />
+									<img src="img/unicoplus_photo.jpg" />
+									<img src="img/happybaby_photo.jpg" />
+									<img src="img/babybanana_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="mom_next_photo_bottom">
+									<img src="img/Nutrilon_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--营养保健板块-->
+					<li class="health">营养保健
+						<div class="health_next">
+							<!--文字部分-->
+							<div class="health_next_text">
+								<div class="health_next_text_one">
+									<a>女性健康</a><br />
+									<hr/>
+									<ul>
+										<li>胶原蛋白</li>
+										<li>葡萄籽</li>
+										<li>白藜芦醇</li>
+										<li>酵素</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">铁元</li>
+										<li>蔓越莓</li>
+										<li>美白丸</li>
+										<li style="color: #666;">维生素C</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">维生素E</li>
+										<li style="color: #666;">燕窝</li>
+										<li style="color: #666;">复合维矿</li>
+										<li>早更年期</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">孕产营养</li>
+										<li style="color: #666;">美容养颜</li>
+										<li>减肥瘦身</li>
+									</ul>
+								</div>
+								<div class="health_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">男士必备</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">增肌粉</li>
+										<li style="color: #666;">番茄红素</li>
+										<li>玛咖</li>
+										<li>护肝片</li>
+									</ul>
+									<ul>
+										<li>叶黄素</li>
+										<li style="color: #666;">复合维矿</li>
+										<li style="color: #666;">提高精力</li>
+										<li>缓解疲劳</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">解酒护肝</li>
+										<li style="color: #666;">改善视力</li>
+										<li style="color: #666;">舒缓压力</li>
+									</ul>
+									<ul>
+										<li>男士备孕</li>
+										<li style="color: #666;">关节养护</li>
+										<li style="color: #666;">清肺润喉</li>
+									</ul>
+								</div>
+								<div class="health_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">关爱爸妈</a><br />
+									<hr/>
+									<ul>
+										<li>钙片</li>
+										<li>维骨力</li>
+										<li>鱼油/卵磷脂</li>
+										<li style="color: #666;">辅酶Q10</li>
+									</ul>
+									<ul>
+										<li>参类滋补</li>
+										<li style="color: #666;">银杏</li>
+										<li style="color: #666;">蛋白粉</li>
+										<li style="color: #666;">蜂胶</li>
+									</ul>
+									<ul>
+										<li>骨骼关节</li>
+										<li style="color: #666;">风湿骨痛</li>
+										<li>心脑健康</li>
+									</ul>
+									<ul>
+										<li>血脂血压</li>
+										<li style="color: #666;">调理肠胃</li>
+										<li>改善睡眠</li>
+									</ul>
+								</div>
+								<div class="health_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">滋补养身</a><br />
+									<hr/>
+									<ul>
+										<li>参类</li>
+										<li>蜂蜜</li>
+										<li style="color: #666;">红糖/黑糖</li>
+										<li>养生茶</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">灵芝/石斛</li>
+										<li style="color: #666;">枸杞/黑枸杞</li>
+										<li style="color: #666;">润肺养胃</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">补肾明目</li>
+										<li style="color: #666;">提神醒脑</li>
+										<li style="color: #666;">滋阴调胃</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">补血调经</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="health_next_photo">
+								<!--顶部图片部分-->
+								<div class="health_next_photo_top">
+									<img src="img/Puritan's_Pride_photo.jpg"/>
+									<img src="img/BLACKMORES_photo.jpg" />
+									<img src="img/HealthyCare_photo.jpg" />
+									<img src="img/Schiff_photo.jpg" />
+									<img src="img/Centrum_photo.jpg" />
+									<img src="img/Salus_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="health_next_photo_bottom">
+									<img src="img/get2_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--数码家电部分-->
+					<li class="Digital">数码家电
+						<div class="Digital_next">
+							<!--文字部分-->
+							<div class="Digital_next_text">
+								<div class="Digital_next_text_one">
+									<a>手机/配件</a><br />
+									<hr/>
+									<ul>
+										<li>苹果</li>
+										<li>华为</li>
+										<li style="color: #666;">小米</li>
+										<li>OPPO</li>
+										<li style="color: #666;">vivo</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">三星</li>
+										<li style="color: #666;">数据线</li>
+										<li style="color: #666;">手机壳</li>
+										<li style="color: #666;">手机贴膜</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">耳机</li>
+										<li>移动电源</li>
+										<li style="color: #666;">手机支架</li>
+										<li>自拍杆</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">手机U盘</li>
+										<li style="color: #666;">防尘塞</li>
+										<li>转换插头</li>
+									</ul>
+								</div>
+								<div class="Digital_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">智能影音</a><br />
+									<hr/>
+									<ul>
+										<li>Beats</li>
+										<li>BOSE</li>
+										<li>JBL</li>
+										<li style="color: #666;">耳麦</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">音响/音箱</li>
+										<li style="color: #666;">微单</li>
+										<li style="color: #666;">拍立得</li>
+										<li style="color: #666;">智能设备</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">儿童手表</li>
+										<li style="color: #666;">老人手表</li>
+										<li>随身听</li>
+									</ul>
+									<ul>
+										<li>智能电视</li>
+										<li style="color: #666;">投影机</li>
+									</ul>
+								</div>
+								<div class="Digital_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">办公/外设</a><br />
+									<hr/>
+									<ul>
+										<li>电脑/平板电脑</li>
+										<li>凌美</li>
+										<li>kindle</li>
+										<li style="color: #666;">笔类</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">电子书</li>
+										<li>鼠标</li>
+										<li style="color: #666;">键盘</li>
+										<li>办公文具</li>
+									</ul>
+									<ul>
+										<li>刻录机</li>
+										<li style="color: #666;">电脑摄像头</li>
+										<li>数位板</li>
+									</ul>
+								</div>
+								<div class="Digital_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">生活电器</a><br />
+									<hr/>
+									<ul>
+										<li>戴森</li>
+										<li style="color: #666;">电风扇</li>
+										<li style="color: #666;">抽湿机</li>
+										<li>空气净化器</li>
+									</ul>
+									<ul>
+										<li>扫地机器人</li>
+										<li style="color: #666;">电吹风/电筒</li>
+										<li style="color: #666;">洗衣机</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">按摩椅</li>
+										<li style="color: #666;">电动牙刷</li>
+										<li style="color: #666;">卷/直发器</li>
+									</ul>
+									<ul>
+										<li>电水壶</li>
+										<li style="color: #666;">净水器</li>
+										<li>烤箱</li>
+										<li style="color: #666;">榨汁机</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="Digital_next_photo">
+								<!--顶部图片部分-->
+								<div class="Digital_next_photo_top">
+									<img src="img/apple_photo.jpg"/>
+									<img src="img/dyson_photo.jpg" />
+									<img src="img/PHILIPS_photo.jpg" />
+									<img src="img/LAMY_photo.jpg" />
+									<img src="img/BRAUN_photo.jpg" />
+									<img src="img/BOSE_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="Digital_next_photo_bottom">
+									<img src="img/get3_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--个人洗护部分-->
+					<li class="care">个人洗护
+						<div class="care_next">
+							<!--文字部分-->
+							<div class="care_next_text">
+								<div class="care_next_text_one">
+									<a>洗发护发</a><br />
+									<hr/>
+									<ul>
+										<li>美发护发工具</li>
+										<li style="color: #666;">其它头发护理</li>
+										<li style="color: #666;">头发造型</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">洗发皂</li>
+										<li style="color: #666;">梳子</li>
+										<li style="color: #666;">护发精油</li>
+										<li>染发剂/膏</li>
+									</ul>
+									<ul>
+										<li>洗护发套装</li>
+										<li style="color: #666;">发膜</li>
+										<li style="color: #666;">护发素</li>
+										<li style="color: #666;">洗发水</li>
+									</ul>
+								</div>
+								<div class="care_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">身体护理</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">沐浴清洁</li>
+										<li style="color: #666;">身体护理</li>
+										<li style="color: #666;">足部护理</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">手部护理</li>
+										<li>口罩</li>
+										<li style="color: #666;">眼罩</li>
+										<li style="color: #666;">暖贴</li>
+									</ul>
+								</div>
+								<div class="care_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">口腔护理</a><br />
+									<hr/>
+									<ul>
+										<li>口腔护理套装</li>
+										<li>漱口水</li>
+										<li style="color: #666;">牙刷</li>
+										<li style="color: #666;">牙膏</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">其他口腔护理</li>
+										<li>牙线</li>
+										<li style="color: #666;">牙线棒</li>
+										<li>牙粉</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">牙素</li>
+										<li style="color: #666;">牙套</li>
+										<li>口腔喷雾</li>
+									</ul>
+								</div>
+								<div class="care_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">女性护理</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">其他女性护理</li>
+										<li style="color: #666;">私密洗液</li>
+										<li style="color: #666;">卫生棉条</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">护垫</li>
+										<li style="color: #666;">卫生巾</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="care_next_photo">
+								<!--顶部图片部分-->
+								<div class="care_next_photo_top">
+									<img src="img/lvshi_photo.jpg"/>
+									<img src="img/L'OCCITANE_photo.jpg" />
+									<img src="img/KERASTASE_photo.jpg" />
+									<img src="img/Vaseline_photo.jpg" />
+									<img src="img/Propolinse_photo.jpg" />
+									<img src="img/Laurier_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="care_next_photo_bottom">
+									<img src="img/get4_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--服饰鞋靴部分-->
+					<li class="clothes">服饰鞋靴
+						<div class="clothes_next">
+							<!--文字部分-->
+							<div class="clothes_next_text">
+								<div class="clothes_next_text_one">
+									<a>时尚女装</a><br />
+									<hr/>
+									<ul>
+										<li>连衣裙</li>
+										<li>女士T恤</li>
+										<li style="color: #666;">女士卫衣</li>
+										<li>女士衬衫</li>
+									</ul>
+									<ul>
+										<li>雪纺/蕾丝衫</li>
+										<li style="color: #666;">女士毛针织衫</li>
+										<li style="color: #666;">女士风衣</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">女士短外套</li>
+										<li style="color: #666;">女士牛仔裤</li>
+										<li style="color: #666;">女士休闲裤</li>
+									</ul>
+									<ul>
+										<li>半身裙</li>
+										<li style="color: #666;">女士西装</li>
+									</ul>
+								</div>
+								<div class="clothes_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">潮流男装</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">男士西装</li>
+										<li>男士羽绒服</li>
+										<li>男士皮衣</li>
+									</ul>
+									<ul>
+										<li>男士夹克</li>
+										<li style="color: #666;">男士T恤</li>
+										<li>男士衬衫</li>
+									</ul>
+									<ul>
+										<li>男士POLO衫</li>
+										<li style="color: #666;">男士卫衣</li>
+										<li style="color: #666;">男士毛衣/针织</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">男士外套</li>
+										<li style="color: #666;">男士牛仔裤</li>
+										<li>男士休闲裤</li>
+									</ul>
+								</div>
+								<div class="clothes_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">魅力内衣</a><br />
+									<hr/>
+									<ul>
+										<li>文胸套装</li>
+										<li style="color: #666;">文胸</li>
+										<li style="color: #666;">男士内裤</li>
+										<li style="color: #666;">女士内裤</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">睡衣/家居服</li>
+										<li>睡裙</li>
+										<li style="color: #666;">泳衣沙滩衣</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">保暖套装</li>
+										<li style="color: #666;">吊带背心</li>
+										<li style="color: #666;">塑身衣</li>
+										<li style="color: #666;">打底袜</li>
+									</ul>
+								</div>
+								<div class="clothes_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">品质鞋配</a><br />
+									<hr/>
+									<ul>
+										<li>帽子</li>
+										<li style="color: #666;">男士凉鞋</li>
+										<li style="color: #666;">女士凉鞋</li>
+										<li style="color: #666;">女士单鞋</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">拖鞋</li>
+										<li>商务鞋</li>
+										<li style="color: #666;">男士休闲鞋</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">女士休闲鞋/运动鞋</li>
+										<li>女士皮鞋/皮靴</li>
+									</ul>
+									<ul>
+										<li>高跟鞋</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="clothes_next_photo">
+								<!--顶部图片部分-->
+								<div class="clothes_next_photo_top">
+									<img src="img/MO&Co_photo.jpg"/>
+									<img src="img/TOMMYHILFIGER_photo.jpg" />
+									<img src="img/GUESS_photo.jpg" />
+									<img src="img/Triumph_photo.jpg" />
+									<img src="img/POLO_SPORT_photo.jpg" />
+									<img src="img/Champio_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="clothes_next_photo_bottom">
+									<img src="img/get5_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--运动户外部分-->
+					<li class="sport">运动户外
+						<div class="sport_next">
+							<!--文字部分-->
+							<div class="sport_next_text">
+								<div class="sport_next_text_one">
+									<a>运动鞋</a><br />
+									<hr/>
+									<ul>
+										<li>跑步鞋</li>
+										<li style="color: #666;">休闲鞋</li>
+										<li style="color: #666;">篮球鞋</li>
+										<li>NIKE</li>
+									</ul>
+									<ul>
+										<li>阿迪达斯</li>
+										<li>ASICS</li>
+										<li style="color: #666;">美津浓</li>
+										<li style="color: #666;">圣康尼</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">SKORA</li>
+										<li style="color: #666;">Under Armour</li>
+									</ul>
+								</div>
+								<div class="sport_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">运动服装</a><br />
+									<hr/>
+									<ul>
+										<li>运动T恤</li>
+										<li style="color: #666;">运动卫衣</li>
+										<li style="color: #666;">运动裤</li>
+										<li style="color: #666;">更多商品</li>
+									</ul>
+									<ul>
+										<li>NIKE</li>
+										<li style="color: #666;">阿迪达斯</li>
+										<li style="color: #666;">PUMA</li>
+										<li>Supreme</li>
+									</ul>
+									<ul>
+										<li>Aape</li>
+										<li style="color: #666;">FILA</li>
+										<li style="color: #666;">VLONE</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">UNIQLO</li>
+										<li>OFF-WHITE</li>
+										<li style="color: #666;">CDG Play</li>
+									</ul>
+								</div>
+								<div class="sport_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">户外装备</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">登山鞋</li>
+										<li>徒步鞋</li>
+										<li style="color: #666;">工装靴</li>
+										<li>溯溪鞋</li>
+									</ul>
+									<ul>
+										<li>登山包</li>
+										<li style="color: #666;">休闲包</li>
+										<li>腰包</li>
+										<li style="color: #666;">头巾</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">越野跑包</li>
+										<li style="color: #666;">越野跑鞋</li>
+										<li>露营装备</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">军刀</li>
+										<li>佳明</li>
+										<li style="color: #666;">LOWA</li>
+										<li style="color: #666;">CRISPI</li>
+									</ul>
+								</div>
+								<div class="sport_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">户外服装</a><br />
+									<hr/>
+									<ul>
+										<li>卫衣衬衫</li>
+										<li style="color: #666;">速干T恤</li>
+										<li style="color: #666;">皮肤风衣</li>
+										<li style="color: #666;">冲锋衣裤</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">户外裤</li>
+										<li>功能内衣</li>
+										<li style="color: #666;">帽子/皮带</li>
+									</ul>
+									<ul>
+										<li>巴塔</li>
+										<li style="color: #666;">棉服</li>
+										<li style="color: #666;">手套</li>
+										<li>围巾/围脖</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">其他户外服饰</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="sport_next_photo">
+								<!--顶部图片部分-->
+								<div class="sport_next_photo_top">
+									<img src="img/SKECHERS_photo.jpg"/>
+									<img src="img/NIKE_photo.jpg" />
+									<img src="img/adidas_photo.jpg" />
+									<img src="img/asics_photo.jpg" />
+									<img src="img/Marmot_photo.jpg" />
+									<img src="img/KEEN_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="sport_next_photo_bottom">
+									<img src="img/get6_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--手表配饰部分-->
+					<li class="Accessories">手表配饰
+						<div class="Accessories_next">
+							<!--文字部分-->
+							<div class="Accessories_next_text">
+								<div class="Accessories_next_text_one">
+									<a>腕表</a><br />
+									<hr/>
+									<ul>
+										<li>瑞士名表</li>
+										<li style="color: #666;">经典国表</li>
+										<li style="color: #666;">欧美腕表</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">日韩腕表</li>
+										<li style="color: #666;">钟表配件</li>
+										<li>欧米茄</li>
+										<li>浪琴</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">天梭</li>
+										<li style="color: #666;">DW</li>
+										<li>西铁城</li>
+										<li style="color: #666;">EMPORIO ARMANI</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">ADEXE</li>
+										<li style="color: #666;">美度</li>
+										<li style="color: #666;">Swatch</li>
+										<li style="color: #666;">卡西欧</li>
+									</ul>
+								</div>
+								<div class="Accessories_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">大牌眼镜</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">太阳眼镜</li>
+										<li>RayBan雷朋</li>
+										<li>GUCCI</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">Dior迪奥</li>
+										<li>BURBERRY</li>
+										<li style="color: #666;">PRADA</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">TOM FORD</li>
+										<li style="color: #666;">miu miu</li>
+										<li style="color: #666;">FURLA</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">BOLON暴龙</li>
+										<li style="color: #666;">MOLSION陌森</li>
+										<li style="color: #666;">光学镜片</li>
+									</ul>
+								</div>
+								<div class="Accessories_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">潮流饰品</a><br />
+									<hr/>
+									<ul>
+										<li>项链</li>
+										<li style="color: #666;">手链/手镯</li>
+										<li>耳饰</li>
+										<li style="color: #666;">串珠</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">时尚戒指</li>
+										<li style="color: #666;">项坠/吊坠</li>
+										<li style="color: #666;">Chocker</li>
+										<li style="color: #666;">头巾</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">施华洛世奇</li>
+										<li style="color: #666;">潘多拉</li>
+										<li>apm</li>
+										<li style="color: #666;">时尚发饰</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">胸针</li>
+										<li style="color: #666;">钥匙扣</li>
+										<li style="color: #666;">饰品套装</li>
+									</ul>
+								</div>
+								<div class="Accessories_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">黄金珠宝</a><br />
+									<hr/>
+									<ul>
+										<li>周生生</li>
+										<li style="color: #666;">周大福</li>
+										<li style="color: #666;">六福珠宝</li>
+										<li>黄金项链</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">黄金手表</li>
+										<li>黄金转运珠</li>
+										<li style="color: #666;">黄金耳饰</li>
+										<li>K金</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">铂金</li>
+										<li>钻石</li>
+										<li style="color: #666;">天然珍珠</li>
+										<li>彩宝</li>
+										<li style="color: #666;">水晶玛瑙</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">翡翠玉石</li>
+										<li style="color: #666;">银饰</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="Accessories_next_photo">
+								<!--顶部图片部分-->
+								<div class="Accessories_next_photo_top">
+									<img src="img/SWAROVSKI_photo.jpg"/>
+									<img src="img/DW_photo.jpg" />
+									<img src="img/PANDORA_photo.jpg" />
+									<img src="img/CITIZEN_photo.jpg" />
+									<img src="img/LONGINES_photo.jpg" />
+									<img src="img/TIFFANY&Co_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="Accessories_next_photo_bottom">
+									<img src="img/get7_photo.png" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--轻奢部分-->
+					<li class="extravagance">轻奢商品
+						<div class="extravagance_next">
+							<!--文字部分-->
+							<div class="extravagance_next_text">
+								<div class="extravagance_next_text_one">
+									<a>轻奢包袋</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">MICHAE KORS迈克高仕</li>
+										<li>FURLA芙拉</li>
+									</ul>
+									<ul>
+										<li>COACH 蔻驰</li>
+										<li style="color: #666;">COCCINELLE</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">PINKO品高</li>
+										<li style="color: #666;">LONGCHAMP 珑骧</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">MARC JACOBS</li>
+										<li>Rebercca Minkoff</li>
+									</ul>
+								</div>
+								<div class="extravagance_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">重奢名包</a><br />
+									<hr/>
+									<ul>
+										<li>GUCCI 古驰</li>
+										<li style="color: #666;">BURBERRY博柏利</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">FENDI芬迪</li>
+										<li style="color: #666;">PRADA普拉达</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">CELINE思琳</li>
+										<li>SAINT LAURENT PARIS</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">Chloé 蔻依</li>
+										<li style="color: #666;">MARNI玛尼</li>
+										<li style="color: #666;">MCM</li>
+									</ul>
+								</div>
+								<div class="extravagance_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">服饰鞋靴</a><br />
+									<hr/>
+									<ul>
+										<li>KENZO 高田贤三</li>
+										<li style="color: #666;">VERSACE范思哲</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">GUCCI古驰</li>
+										<li style="color: #666;">Ferragamo菲拉格慕</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">MONTBLANC万宝龙</li>
+										<li> Zegna 杰尼亚</li>
+									</ul>
+								</div>
+								<div class="extravagance_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">功能箱包</a><br />
+									<hr/>
+									<ul>
+										<li>Samsonite新秀丽</li>
+										<li style="color: #666;">RIMOWA</li>
+										<li style="color: #666;">旅行大师</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">TUMI途明</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="extravagance_next_photo">
+								<!--顶部图片部分-->
+								<div class="extravagance_next_photo_top">
+									<img src="img/MICHAEL_KORS_photo.jpg"/>
+									<img src="img/COACH_photo.jpg" />
+									<img src="img/FURLA_photo.jpg" />
+									<img src="img/BURBERRY_photo.jpg" />
+									<img src="img/SF_photo.jpg" />
+									<img src="img/BOTTEGA_VENETA_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="extravagance_next_photo_bottom">
+									<img src="img/get8_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<!--家居生活部分-->
+					<li class="life">家居生活
+						<div class="life_next">
+							<!--文字部分-->
+							<div class="life_next_text">
+								<div class="life_next_text_one">
+									<a>轻奢包袋</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">杯壶滤水</li>
+										<li>保温杯</li>
+										<li style="color: #666;">吸管杯</li>
+										<li style="color: #666;">玻璃杯</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">马克杯</li>
+										<li style="color: #666;">塑料杯</li>
+										<li style="color: #666;">水壶</li>
+										<li style="color: #666;">咖啡器具</li>
+										<li style="color: #666;">茶具</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">酒具</li>
+										<li style="color: #666;">咖啡器皿</li>
+										<li>BRITA碧然德</li>
+									</ul>
+									<ul>
+										<li>THERMOS膳魔师</li>
+										<li style="color: #666;">ZOJIRUSHI象印</li>
+									</ul>
+								</div>
+								<div class="life_next_text_two">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">厨房餐具</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">炒锅</li>
+										<li style="color: #666;">煎锅/不粘锅</li>
+										<li>锅具套装</li>
+										<li style="color: #666;">蒸锅</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">奶锅</li>
+										<li>汤锅</li>
+										<li style="color: #666;">砂锅</li>
+										<li style="color: #666;">高压锅</li>
+										<li style="color: #666;">刀具</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">菜刀</li>
+										<li style="color: #666;">砧板</li>
+										<li>餐具</li>
+										<li style="color: #666;">碗碟</li>
+										<li style="color: #666;">厨房储物</li>
+									</ul>
+									<ul>
+										<li>双立人</li>
+										<li style="color: #666;">康宁</li>
+										<li style="color: #666;">韦诺森</li>
+										<li style="color: #666;">菲仕乐</li>
+									</ul>
+								</div>
+								<div class="life_next_text_three">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">家纺布艺</a><br />
+									<hr/>
+									<ul>
+										<li style="color: #666;">床垫</li>
+										<li>枕头/枕芯</li>
+										<li>床品套件</li>
+										<li style="color: #666;">毛毯/蚊帐</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">家居鞋服</li>
+										<li style="color: #666;">NITTAYA</li>
+										<li style="color: #666;">LOVO</li>
+										<li style="color: #666;">博洋家纺</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">芭蕾丽丝</li>
+									</ul>
+								</div>
+								<div class="life_next_text_four">
+									<a style="color: #333;font-size: 14px;font-weight: bold;margin: 0px 20px;">家具加装</a><br />
+									<hr/>
+									<ul>
+										<li>家具</li>
+										<li style="color: #666;">家装建材</li>
+										<li style="color: #666;">灯饰照明</li>
+										<li style="color: #666;">家装家饰</li>
+									</ul>
+									<ul>
+										<li style="color: #666;">阳台/户外家具</li>
+										<li>浴室卫浴</li>
+										<li style="color: #666;">五金家具</li>
+									</ul>
+									<ul>
+										<li>沙发</li>
+										<li style="color: #666;">顾家家居</li>
+										<li style="color: #666;">黑白调</li>
+										<li style="color: #666;">KOHLER 科勒</li>
+									</ul>
+									<ul>
+										<li>雅兰床垫</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--图片部分-->
+							<div class="life_next_photo">
+								<!--顶部图片部分-->
+								<div class="life_next_photo_top">
+									<img src="img/THERMOS_photo.jpg"/>
+									<img src="img/BRITA_photo.jpg" />
+									<img src="img/TAIPATEX_photo.jpg" />
+									<img src="img/MTG_photo.jpg" />
+									<img src="img/Kao_photo.jpg" />
+									<img src="img/xiaolinzhiyao_photo.jpg" />
+								</div>
+								<!--底部图片部分-->
+								<div class="life_next_photo_bottom">
+									<img src="img/get9_photo.jpg" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--首页、全球逛、工厂店、品质奶粉、人气面膜、充值-->
+        <div class="functab">
+			<ul class="functab_next">
+				<li class="home_page">首页</li>
+				<li class="global_shopping">全球逛</li>
+				<li class="factory_store">工厂店</li>
+				<li class="quality_milk_powder">品质奶粉</li>
+				<li class="facemask">人气面膜</li>
+				<li class="money">充值</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!--轮播图代码段-->
+	<div class="turn_photo">
+		<ul class="list">
+			<li class="item active"><img src="img/turn1.webp"></li>
+			<li class="item"><img src="img/turn2.webp"></li>
+			<li class="item"><img src="img/turn3.webp"></li>
+			<li class="item"><img src="img/turn4.webp"></li>
+			<li class="item"><img src="img/turn5.webp"></li>
+		</ul>
+		<ul class="pointlist">
+			<li class="point active" data-index = "0"></li>
+			<li class="point" data-index = "1"></li>
+			<li class="point" data-index = "2"></li>
+			<li class="point" data-index = "3"></li>
+			<li class="point" data-index = "4"></li>
+		</ul>
+		<button type="button" class="btn" id="goPre"><</button>
+		<button type="button" class="btn" id="goNext">></button>
+	</div>
+	<script type="text/javascript" src="js/index.js" ></script><!--导入轮播图外部js文件-->
+	
+	<!--保障图代码段-->
+	<div class="adjmode">
+		<div class="adjmode_inside">
+			<p>
+			      考拉承诺
+			   <span>|</span>
+			      正品保障
+			</p>
+			<img src="img/adjmode_photo1.jpg" />
+			<div class="adjmode_inside_box">
+				12项正品保障措施
+			</div>
+		</div>
+	</div>
+	
+	<!--新人会场代码段-->
+	<div class="new_venue">
+		<img src="img/new1.png" />
+		<img src="img/new2.png" />
+		<img src="img/new3.png" />
+		<img src="img/new4.png" />
+	</div>
+	
+	<div class="middlegoods">
+	<!--★口碑爆款★代码段-->
+		<div class="Explosive">
+			<div class="Explosive_title">★口碑爆款★</div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Jmsulotion.webp"/>
+								<h5>【2件装】Jmsolution 珍珠全身防水防晒隔离喷雾SPF50 180毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>无惧夏日暴晒的秘密武器</h6>
+								<a>￥55</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/EltaMD.webp"/>
+								<h5>EltaMD 氨基酸泡沫卸妆洁面乳 207毫升 泡沫绵密 温和不刺激</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>绵密泡沫洗出幸福感</h6>
+								<a>￥168</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/kao.webp"/>
+								<h5>【干燥敏感肌必备】Kao 花王 Curel 珂润润浸保湿面霜 40克</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>赶走冬日干燥</h6>
+								<a>￥159</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Naturieimju.webp"/>
+								<h5>【便宜大碗】Naturie imju 薏仁亮白保湿防晒化妆水 500毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>保湿防晒 平价战斗机</h6>
+								<a>￥53</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/NARIDUP.webp"/>
+								<h5>【修颜亮肤款】NARIS UP 娜丽丝亮白紫色防晒喷雾 80克</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>不惧骄阳 白皙依旧</h6>
+								<a>￥29.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Paparecipe.webp"/>
+								<h5>【王牌爆款 蜂蜜润养】Papa recipe 春雨 蜂蜜补水保湿面膜 25克/片 10片装</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>深深滋润缺水的肌肤</h6>
+								<a>￥79</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/lvshi.webp"/>
+								<h5>【2件装 2种可选】Ryo 吕 棕吕 防脱固发滋养洗发水组合/洗护组合500毫升/瓶</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>人见人爱，超高人气</h6>
+								<a>￥85</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/AMORTAL.webp"/>
+								<h5>【包邮爆款】AMORTALS尔木萄 星空美妆蛋套盒 3只+蛋架/盒 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>上妆告别左右手</h6>
+								<a>￥39</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/BIOISLAND.webp"/>
+								<h5>【品牌直采】BIO ISLAND 佰澳朗德 婴幼儿宝宝补锌咀嚼片 120粒/瓶</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>吃饭香香 身体棒</h6>
+								<a>￥79</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MEDIHEAL.webp"/>
+								<h5>【3盒装】MEDIHEAL 美迪惠尔 N.M.F针剂水库保湿面膜 新版 10片/盒 补水网红</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>给肌肤来次水润spa</h6>
+								<a>￥139</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/vidivici.webp"/>
+								<h5>【平价香奈儿】vidivici 净透美肌洁面乳 120毫升 女神蚕丝嫩白洁面</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>1分钟洗出水光透亮</h6>
+								<a>￥99</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LaboLabo.webp"/>
+								<h5>【杜鹃力荐 毛孔收敛神器】城野医生 毛孔细致收敛水 100毫升 清洁收敛毛孔</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>告别草莓脸 彻底整治毛孔 </h6>
+								<a>￥99</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Deonatulle.webp"/>
+								<h5>【异味克星】Deonatulle 杜得乐 腋下干爽止汗消臭石 20克 强去汗味 2支装</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>所有异味的克星</h6>
+								<a>￥128</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KISSME.webp"/>
+								<h5>【日本版黑色】KISS ME 奇士美 花漾美姬梦幻泪眼防水眼线液笔 0.1极细0.4毫</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>释放双眼魅力</h6>
+								<a>￥62</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Kiehl's.webp"/>
+								<h5>【阚清子同款】Kiehl's 科颜氏 亚马逊白泥面膜125ml 专柜当家明星 细嫩净肤</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>彻底告别粗大毛孔</h6>
+								<a>￥249</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		
+		<!--99元任选2件代码段-->
+		<div class="Optional">
+			<div class="Optional_title">99元任选2件</div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KaoLiese.webp"/>
+								<h5>【多色可选】Kao 花王旗下 Liese 莉婕 泡沫染发膏 108毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>在家自己做染发</h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Swisse.webp"/>
+								<h5>【天然温和】Swisse 卸妆水 300毫升 温和免洗 天然黄瓜水 敏感肌适用</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>孕妇也能用的天然卸妆水</h6>
+								<a>￥55</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/JMsolution.webp"/>
+								<h5>【自营】JMsolution 急救补水针剂面膜 35毫升/片 10片装</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>干燥肌肤急救好物</h6>
+								<a>￥75</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/sentian.webp"/>
+								<h5>【高保湿！】森田 三重玻尿酸复合原液面膜 10片/盒 补水 进口原料</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>原液补水胜过医美</h6>
+								<a>￥79</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LAROCHE-POSAY.jpg"/>
+								<h5>【淡化痘印】LA ROCHE-POSAY 理肤泉 B5痘印舒缓修护霜 100毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>滚蛋吧，痘印痘疤</h6>
+								<a>￥89</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/TheOrdinary.webp"/>
+								<h5>【淡化黑眼圈】The Ordinary 5%咖啡因眼部精华 30毫升 淡化眼袋浮肿</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>双眸明亮动人</h6>
+								<a>￥72</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Ryo.webp"/>
+								<h5>【油皮克星】Ryo 吕 紫吕 防脱固发滋养洗发水 400毫升/瓶 油性发质</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>滋养韧发 清爽控油</h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/okamoto.webp"/>
+								<h5>okamoto 冈本 001润滑液超薄中号避孕套 3片装 200%润滑液量 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>爱就要0距离接触</h6>
+								<a>￥54</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/unicharm.webp"/>
+								<h5>unicharm 尤妮佳 Silcot省1/2化妆水化妆棉 40枚 四盒装</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>让化妆水省出一半量</h6>
+								<a>￥55</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Milbon.webp"/>
+								<h5>【娜扎同款 3种可选】Milbon 玫丽盼 Deesse's沙龙级发膜 4支装 前男友发膜</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>“前男友”发膜</h6>
+								<a>￥52</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LION.webp"/>
+								<h5>【2瓶装 多种可选】LION 狮王 ADVANTAGE抗感漱口水 450毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>我们都需要健康口腔</h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Purevivi.webp"/>
+								<h5>【薇娅同款 平价贝德玛】Purevivi 皇后卸妆水 500毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>四效合一 温和卸妆 </h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/mandom.webp"/>
+								<h5>【玻尿酸补水保湿】mandom 曼丹 婴儿肌肤滋润透明质酸面膜 5片装</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>粉粉嫩嫩好保湿</h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/TheOrdinary1.webp"/>
+								<h5>【控油亮白】The Ordinary 10%烟酰胺+1%锌 维他命精华 30毫升 提亮肤色</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>小雀斑？大油田？统统拒绝</h6>
+								<a>￥49</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/HANAJIRUSHI.webp"/>
+								<h5>花印（HANAJIRUSHI）男士控油调理洁面乳（黑白磨砂柔珠）130g</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>男士洁面控油保湿</h6>
+								<a>￥89</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--大牌满减代码段-->
+		<div class="Pricereduction">
+			<div class="Pricereduction_title"><a>大牌满减</a></div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/PerfectDiary.webp"/>
+								<h5>Perfect Diary完美日记 雾色梦境哑光唇釉女学生雾面染唇液唇蜜唇彩持久口红</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>丝绒雾面，朱正廷代言哑光</h6>
+								<a>￥39.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/HOLA.webp"/>
+								<h5>【第2支1元，第3支0元】HOLA赫拉寡肽原液 淡化修复痘印面部精华液</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>张韶涵同款 淡化痘印原液</h6>
+								<a>￥89</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ziyuan.webp"/>
+								<h5>【第二件0元】滋源无硅油玫瑰柔顺茶树去屑精油洗发水露膏控油止痒正品400ml</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>超值大容量 泫雅代言</h6>
+								<a>￥69</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MdoC.webp"/>
+								<h5>【懒人福音·一抹即出门】MdoC蒙度士 男士素颜霜 滋润提升美白面霜50ml</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>自带美颜 真正的素颜霜</h6>
+								<a>￥216</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/PerfectDiary1.webp"/>
+								<h5>完美日记沁色微光水唇釉小酒管水光唇釉唇蜜染唇液口红持久保湿</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>完美日记小酒管水光唇釉</h6>
+								<a>￥59.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ZEESEA.webp"/>
+								<h5>ZEESEA滋色小散粉定妆粉持久控油遮瑕定妆蘑菇蜜粉疏防水女晚安粉</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>清爽细腻雾面底妆</h6>
+								<a>￥36</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/OLAY.webp"/>
+								<h5>【宋茜同款光感小白瓶】OLAY 玉兰油 水感透白光塑精华液 亮白补水 30毫升 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>补水亮肤一举两得</h6>
+								<a>￥169</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/PANTENE.webp"/>
+								<h5>2款可选 | PANTENE 潘婷 护发素 3分钟奇迹奢护精华霜套装 180毫升/支 3支装 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>发膜级修护力改善干枯毛躁</h6>
+								<a>￥115</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Whisper.webp"/>
+								<h5>【热巴同款】Whisper 护舒宝 pinkcess棉柔贴身量多日夜用卫生巾 284mm10片</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>极薄透气 云触感表层超柔</h6>
+								<a>￥16</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/VS.webp"/>
+								<h5>【易烊千玺同款】6款可选 VS 沙宣 专业洗发水 750毫升 深度清洁 滋润营养</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>沙龙级养护 垂坠直至发梢</h6>
+								<a>￥79</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/HOLA1.webp"/>
+								<h5>【第2支1元,第3支0元】HOLA赫拉玻尿酸补水保湿原液 收缩毛孔面部精华液</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>舒缓肌肤 深度保湿</h6>
+								<a>￥89</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ZEESEA2.webp"/>
+								<h5>ZEESEA滋色埃及眼影盘16色 安德森猫眼影闪粉珠光彩妆盘</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>大英博物馆埃及限量版</h6>
+								<a>￥118</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/SHISEIDO.webp"/>
+								<h5>【拍下第3支0元】SHISEIDO 资生堂 SENKA珊珂 绵润白泥泡沫洗面奶120g</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>丰富泡沫 深层清洁</h6>
+								<a>￥51</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/VS1.webp"/>
+								<h5>【易烊千玺同款】4款可选 VS 沙宣 裸感清爽控油无硅油洗发水 500ml/瓶 氨基酸</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>维裸感奢宠  刷新0硅体验</h6>
+								<a>￥69</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LAURIER.webp"/>
+								<h5>LAURIER 乐而雅 超瞬吸 纤巧夜用卫生巾 300毫米 10片/包</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>安心防漏 整晚安睡</h6>
+								<a>￥19</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--美容彩妆代码段-->
+		<div class="Cosmetology">
+			<div class="Cosmetology_title"><a>美容彩妆</a></div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/SHISEIDO1.webp"/>
+								<h5>SHISEIDO 资生堂 安热沙小金瓶防晒露 SPF50+PA+60毫升 防水防汗</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>隔离紫外线 夏季不怕晒</h6>
+								<a>￥179</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/HOLA2.webp"/>
+								<h5>【9.9限时秒】HOLA赫拉滋润保湿炫彩唇膏 哑光雾面 持久保湿口红女</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>多种场合，妆容不停变幻</h6>
+								<a>￥9.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/bingxi.webp"/>
+								<h5>【冰希黎旗下品牌】芬尚元素香水女士持久淡香自然学生香水清新独角兽正品香水</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>少女的嗅觉盛宴</h6>
+								<a>￥39</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LΛNEIGE.webp"/>
+								<h5>【修颜提亮】LΛNEIGE 兰芝 雪纱丝柔防晒新款隔离霜 30毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>肌肤自带美颜滤镜</h6>
+								<a>￥119</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KISSME1.webp"/>
+								<h5>【第3代 纤长款】KISS ME 奇士美 花漾美姬自然卷翘纤长防水睫毛膏 6克</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>根根分明 拒绝苍蝇腿</h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MAC.webp"/>
+								<h5>【经典小辣椒】MAC魅可 子弹头时尚唇膏 chili复古红气质牛血色 新品尤雾弹</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>水漾润泽 魅惑红唇</h6>
+								<a>￥129</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/AGE20`s.webp"/>
+								<h5>【三色拉花款 精华含量71%】AGE20`s 爱纪二十之 爱敬 精华粉底气垫BB霜</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>水光精华 保湿水润遮瑕</h6>
+								<a>￥119</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/AVANCE.webp"/>
+								<h5>【林允同款 变身睫毛精】AVANCE 睫毛增长精华液 7毫升 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>林允同款 变身密长睫毛精</h6>
+								<a>￥79</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Avène.webp"/>
+								<h5>【防晒小金刚 pony同款】Avène 雅漾 清爽倍护便携防晒乳SPF50+ 30毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>高倍防晒 安心出游</h6>
+								<a>￥69</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/SOFINA.webp"/>
+								<h5>【台版-控油清爽】SOFINA 苏菲娜 控油妆前隔离乳 SPF16 PA++ 25</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>实力对抗大油田</h6>
+								<a>￥75</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/CHIOTURE.webp"/>
+								<h5>【买1送1】CHIOTURE稚优泉 印章指甲油 2020春夏美甲磨砂哑光封层裸色透明</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>指尖上的色彩美学</h6>
+								<a>￥19.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Za.webp"/>
+								<h5>资生堂 Za/姬芮 新焕真皙美白防晒隔离霜35g/支 EX版添加玻尿酸持久保湿 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>焕新小白管水润养肤大升级</h6>
+								<a>￥55</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/PerfectDiary2.webp"/>
+								<h5>Perfect Diary完美日记探险家老虎盘眼影Discovery联名款12色大地色哑光珠光</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>完美日记 十二色动物眼影</h6>
+								<a>￥119.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KISSME2.webp"/>
+								<h5>【日本版棕色】KISS ME 奇士美 梦幻泪眼不晕染眼线液笔0.4毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>防水防汗不脱妆</h6>
+								<a>￥62</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ARMANI.webp"/>
+								<h5>【易烊千玺代言】GIORGIO ARMANI 乔治·阿玛尼 臻致丝绒哑光红管唇釉6.5毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>丝绒紧致 满分气质范</h6>
+								<a>￥248</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--家居个护代码段-->
+		<div class="Household">
+			<div class="Household_title"><a>家居个护</a></div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/SHISEIDO2.webp"/>
+								<h5>【青春有你同款】SHISEIDO 资生堂旗下 Fino 滋润渗透发膜 230克/罐</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>发膜界红宝瓶</h6>
+								<a>￥59</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/SHISEIDO3.webp"/>
+								<h5>【日本版】SHISEIDO 资生堂旗下HANDCREAM 美润美肌护手霜 100克</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>贴心呵护，爱不释手</h6>
+								<a>￥55</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Sensodyne.webp"/>
+								<h5>【第二支零元】Sensodyne舒适达 牙龈护理脱敏过敏出血美白护理牙膏100g</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>快速脱敏 牙龈护理</h6>
+								<a>￥39</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Lauríer.webp"/>
+								<h5>花王 Lauríer 乐而雅 通透性护垫无香 14厘米 72片 舒适清爽</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>清透自在每一天</h6>
+								<a>￥29</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LUCAS'.webp"/>
+								<h5>LUCAS' PAPAW REMEDIES 卢卡斯 神奇番木瓜万用膏 25克</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>万用小能手 随身小保镖</h6>
+								<a>￥19.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Kao1.webp"/>
+								<h5>Kao 花王旗下 ClearClean洁齿健防蛀护齿除牙垢洁白牙膏165克/支</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>美丽人生 从齿开始</h6>
+								<a>￥11.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/zhenshiming.webp"/>
+								<h5>珍视明蒸汽眼罩热敷眼睛罩睡眠发热加热眼贴洋甘菊香10片</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>蒸汽热敷SPA 舒缓眼疲劳</h6>
+								<a>￥58</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/THEBODYSHOP.webp"/>
+								<h5>THE BODY SHOP 美体小铺生姜头皮护理洗发水 400毫升 防脱去屑 清爽控油</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>防脱去屑止痒</h6>
+								<a>￥95</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KELO-COTE.webp"/>
+								<h5>【痘印术后必备】【法国药房版本】KELO-COTE 芭克软膏去疤修复膏 15克/支</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>淡疤抚痕 重拾自信</h6>
+								<a>￥208</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MEDIAN.webp"/>
+								<h5>【青柠薄荷】MEDIAN 麦迪安 专业清理93%牙结石惊效变白牙膏 120克*3</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>笑容自带闪光灯</h6>
+								<a>￥38</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MOROCCANOIL.webp"/>
+								<h5>【lady gaga 同款】MOROCCANOIL摩洛哥油 护发精油 标准版 100毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>秀发乌黑亮丽 起死回生</h6>
+								<a>￥239</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Vaseline.webp"/>
+								<h5>Vaseline 凡士林 身体乳保湿滋润 香体 全身 补水  嫩白烟酰胺 400毫升 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>全身嫩白 三效合一</h6>
+								<a>￥35</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ElizabethArden.webp"/>
+								<h5>【500ml大包装】ElizabethArden 伊丽莎白雅顿 绿茶蜜滴舒体霜</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>拯救你的沙漠肌</h6>
+								<a>￥110</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/OKINALONGSPIN.webp"/>
+								<h5>OKINA LONGSPIN 家庭袋装便携果冻型漱口水  14毫升 10个装/袋</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>防水防汗不脱妆</h6>
+								<a>￥62</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Kao2.webp"/>
+								<h5>Kao花王 CAPE持久定型喷雾  铁刘海自然蓬松造型男女卷发 紫色无香 180克</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>持久定型 出众发型</h6>
+								<a>￥52</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--母婴儿童代码段-->
+		<div class="mombaby">
+			<div class="mombaby_title"><a>母婴儿童</a></div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/aila.webp"/>
+								<h5>【甄选美味 天然无添加】艾拉厨房 婴儿皇牌彩虹系列水果混合果泥 90g EK052</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>口感丰富 方便携带</h6>
+								<a>￥14.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/jingqi.webp"/>
+								<h5>【补水护肤】婧麒孕妇玻尿酸面膜补水保湿面膜肌底修复深层补水玻尿酸补水面膜</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>肌底修复 深层补水</h6>
+								<a>￥68</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Aptamil.webp"/>
+								<h5>Aptamil 爱他美德国配方婴幼儿奶粉2+段/5段 2岁以上800克/罐</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>开启宝宝天生潜能</h6>
+								<a>￥140</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/childhood.webp"/>
+								<h5>【4倍吸收，好喝不上火】童年时光 婴幼儿童液体钙镁锌473ml/瓶 乳钙</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>吸收好 口味好 酸奶般好喝</h6>
+								<a>￥182</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Babytry.webp"/>
+								<h5>【热销款】Babytry蓓臣  婴幼儿毛绒安抚巾bb布偶棒套装 可入口宝宝睡眠手偶玩具</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>毛绒安抚巾布偶棒套装</h6>
+								<a>￥35</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MDB.webp"/>
+								<h5>【满2件立减5元 再赠漱口杯】【柔软细密万毛】MDB婴儿宝宝儿童万毛柔软牙刷</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>柔软细密 软胶刷柄</h6>
+								<a>￥19.80</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/minizone.webp"/>
+								<h5>10色可选|minizone春夏秋款男女宝宝儿童小童防蚊裤休闲裤子1-7岁</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>舒适和品质的代言</h6>
+								<a>￥29</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/jollybaby.webp"/>
+								<h5>【限时99元任选4件】jollybaby 快乐宝贝 澳洲 宝宝立体早教布书系列</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>亲子互动 宝宝早教认知</h6>
+								<a>￥36.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/rivsea.webp"/>
+								<h5>【无添加食用盐白砂糖】禾泱泱rivsea 肉酥 婴幼儿辅食 肉松 宝宝营养辅食 肉酥</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>无盐 无糖 无调味肉酥</h6>
+								<a>￥49</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/bangbaoshi.webp"/>
+								<h5>日本进口 帮宝适一级帮纸尿裤 L52片 空气纸尿裤婴儿透气尿不湿</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>羽柔材质，柔软呵护</h6>
+								<a>￥125</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Roberta.webp"/>
+								<h5>Roberta by 诺贝达 四季可穿宝宝可爱长袖防水反穿衣罩衣0-5岁</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>可爱饭兜  方便携带</h6>
+								<a>￥19.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/HEINZ.webp"/>
+								<h5>【专属“健畅”配方】HEINZ 亨氏金装粒粒面-鳕鱼胡萝卜 320克/盒 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>粒粒细致 易嚼易吞咽</h6>
+								<a>￥39</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/beiens.webp"/>
+								<h5>【99元任选3件】beiens贝恩施早教玩具儿童撕不烂布书 婴幼儿宝宝立体布书</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>婴儿早教撕不烂立体布书</h6>
+								<a>￥58</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Roberta1.webp"/>
+								<h5>【量贩 5双装】Roberta by 诺贝达 5双装儿童宝宝中筒棉袜子1-12岁+</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>实惠5条装 柔软亲肤</h6>
+								<a>￥29.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Aptamil1.webp"/>
+								<h5>【有效期至2020-10-08】Aptamil 德国爱他美 婴幼儿奶粉 5段/2+段 600克 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>为宝宝健康做贡献</h6>
+								<a>￥110</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--美食保健代码段-->
+		<div class="food">
+			<div class="food_title"><a>美食保健</a></div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/a2.jpg"/>
+								<h5>新西兰进口 a2全脂高钙儿童学生成人奶粉 早餐速溶奶粉 美味营养1kg/袋*2</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>a2 感受不同</h6>
+								<a>￥189</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/samyang.jpg"/>
+								<h5>韩国进口samyang三养火鸡面辣方便面辣鸡面速食宿舍泡面夜宵拉面干拌面五连包</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>泡面界网红，火辣！</h6>
+								<a>￥28.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/muran.webp"/>
+								<h5>【益肝补肾养血乌发】牧然九蒸九晒黑芝麻丸12颗 108g/瓶 手工养生蜂蜜丸</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>九蒸九晒乌发养发</h6>
+								<a>￥29.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/LifeSpace.jpg"/>
+								<h5>【吉克隽逸同款】Life Space 益倍适B420纤体益生菌 60粒/瓶*2瓶</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>肠胃养护 老少皆宜</h6>
+								<a>￥238</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Swisse1.webp"/>
+								<h5>【海外分站商品】Swisse斯维诗 钙&VD片 150片/罐【青春有你同款】</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>补钙+VD 强健骨骼</h6>
+								<a>￥118</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ridong.jpg"/>
+								<h5>日本进口北海道日东红茶皇家奶茶袋装零食 网红冲泡饮品 速溶奶茶粉白桃味 10条装</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>日本皇家御用品牌</h6>
+								<a>￥39</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Bio-E.webp"/>
+								<h5>【任嘉伦力荐】Bio-E进口代餐粉代餐奶昔膳食纤维减脂代餐食品低脂低卡饱腹代餐</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>刘涛推荐轻断食代餐粉</h6>
+								<a>￥119</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/ACQUAneve.jpg"/>
+								<h5>【考拉自营】【意大利卫生局认证】ACQUA neve 意大利天然雪山水 500毫升/瓶</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>天然水源地 大自然独一份</h6>
+								<a>￥39</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/fuchi.jpg"/>
+								<h5>新品【百草味-富吃虾条40g】泰国进口网红小零食膨化薯片非油炸</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>自带光环的超浓郁鲜虾口感</h6>
+								<a>￥25.9</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/muran1.jpg"/>
+								<h5>牧然雪燕天然拉丝植物燕窝1袋30g 可组合皂角米桃胶银耳补胶原蛋白</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>干净通透，拉丝清晰</h6>
+								<a>￥39.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Swisse2.webp"/>
+								<h5>Swisse斯维诗 蔓越莓精华胶囊90粒/瓶【秘密花园安心守护】</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>养出好气色</h6>
+								<a>￥189</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/guazi.jpg"/>
+								<h5>【包邮】老街口 焦糖/山核桃味瓜子500g*4袋 坚果炒货 休闲零食 多味可选 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>粒粒饱满，颗颗醇香</h6>
+								<a>￥39.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/liulian.jpg"/>
+								<h5>榴芒一刻 苏丹王香糯Q弹麻薯冰皮榴莲泡泡120g/盒 零食点心 顺丰冷链</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>榴莲果肉超50%</h6>
+								<a>￥118</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/FANCL.jpg"/>
+								<h5>FANCL30岁男性综合营养包复合多种维生素 日本原装 30袋/包</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>补充人体必须营养</h6>
+								<a>￥197</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/luosifen.jpg"/>
+								<h5>食人谷螺蛳粉300g正宗柳州螺狮粉原味袋装米线酸辣粉水煮速食 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>正宗柳州螺狮粉原味袋装</h6>
+								<a>￥25</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--工厂店精选代码段-->
+		<div class="Factorystore">
+			<div class="Factorystore_title"><a>工厂店精选</a></div>
+			<div class="goods">
+				<ul>
+					<!--第一排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/SUPREDO.webp"/>
+								<h5>【网红爆款】SUPREDO 日常妆容化妆套刷5支装 裸妆便携</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>新手必备日常妆容套刷</h6>
+								<a>￥129</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/notime.jpg"/>
+								<h5>【李佳琦推荐法国品牌】notime仪器家用脸部按摩洗脸仪清洁面部导出离子</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>IP定制臻品</h6>
+								<a>￥269</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Baseus.jpg"/>
+								<h5>Baseus倍思 加湿器小型矿泉水大雾量办公室充电家用静音卧室usb迷你补水喷雾</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>细腻大喷雾 家居车载更方便 </h6>
+								<a>￥49</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/xiangdu.jpg"/>
+								<h5>【买两件立减10元】香度 无火香薰 藤条家居除味香氛 自带70ml精油</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>来源法国曼氏的香精</h6>
+								<a>￥69</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Inysol.jpg"/>
+								<h5>Inysol 极细眉笔 1.5mm精细眉笔根根分明 防水不晕口罩妆</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>回归精致眉形，体验更方便自然</h6>
+								<a>￥25</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第二排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/PUPPY.jpg"/>
+								<h5>小狗（PUPPY）家用手持吸尘除螨仪小型 强力紫外线高频拍打床铺床褥 热风烘干</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>小狗除螨仪，家中除螨卫士</h6>
+								<a>￥195</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KEHEAL.jpg"/>
+								<h5>KEHEAL科西手持挂烫机高温消毒 家用差旅便携式可折叠蒸汽 小型熨烫机熨斗H1</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>定型效果好 防干烧断电 即熨即穿</h6>
+								<a>￥369</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/t-shirt.webp"/>
+								<h5>【春夏上新】考拉工厂店 顺滑挺括双面丝光长绒棉女装T恤</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>简洁舒适，经典百搭</h6>
+								<a>￥159</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/PHILIPS.jpg"/>
+								<h5>PHILIPS飞利浦 充电式声波震动牙刷软毛呵护型温和清洁HX3226（自带刷头*2）</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>23000次/分钟的刷毛震动</h6>
+								<a>￥199</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/IMFORME.webp"/>
+								<h5>【小胖水乳】IMFORME日本植物精华水250毫升+乳250毫升</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>补足水分，改善肤质</h6>
+								<a>￥279</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<!--第三排商品-->
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/Ulike.jpg"/>
+								<h5>Ulike蓝宝石冰点激光脱毛仪器腋下私处家用全身剃毛刮毛脱毛机女极光4</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>直达毛根，脱毛全程冰护肌肤。</h6>
+								<a>￥1599</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/KONKA.jpg"/>
+								<h5>KONKA 康佳电风扇家用台式转页扇台扇学生鸿运扇迷你小风扇宿舍电扇 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>低噪吹风 安全柔风</h6>
+								<a>￥49.90</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/MacBook.png"/>
+								<h5>Apple 2019 MacBook Pro 16寸 九代 六核i7处理器16G 笔记本电脑 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>全新键盘体验，不容错过</h6>
+								<a>￥18199</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					
+					<a href="goodsdetails.html" style="color: black;text-decoration: none;" onclick="change()">
+						<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/aj1dior.jpg"/>
+								<h5>【限量预售】耐克Nike Air Jordan 1 High Zoom R2T AJ1白灰红蓝幻底</h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>酷炫水晶底篮球鞋</h6>
+								<a>￥3089</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+					</a>
+					
+					<li class="li">
+						<div class="box">
+							<div class="goodscontent">
+								<img src="img/G-SHOCK.jpg"/>
+								<h5>【考拉自营】卡西欧G-SHOCK运动款夜跑樱花粉防水炫彩手表时尚腕表 </h5>
+							</div>
+						</div>
+						<div class="price">
+								<h6>时尚手表，值得拥有</h6>
+								<a>￥994</a>
+								<span>立即购买</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!--底部信息代码段-->
+	<div class="foot">
+		<!--底部第一行信息代码段-->
+		<div class="firstfoot">
+			<ul>
+			<li>
+				<div>正</div>
+				<strong>正品承诺</strong><br />
+				<span>正品保障 假一赔十</span>
+			</li>
+			<li>
+				<div>低</div>
+				<strong>低价保障</strong><br />
+				<span>缩减中间环节 确保低价</span>
+			</li>
+			<li>
+				<div>退</div>
+				<strong>30天无忧退货</strong><br />
+				<span>国内退货 售后无忧</span>
+			</li>
+			<li>
+				<div>邮</div>
+				<strong>满88包邮</strong><br />
+				<span>部分特殊商品除外</span>
+			</li>
+			
+			</ul>
+		</div>
+		
+		<!--底部第二行信息代码段-->
+		<div class="secondfoot">
+			<div class="guideList">
+				<ul>
+					<li class="focuson">
+						<img src="img/kaolaphoto.png" />
+						<div>
+							<span>关注我们</span>
+							<img src="img/foot_chat.jpg"/>
+						</div>
+					</li>
+					<li class="foottip">
+						<h4>考拉保障</h4>
+						<h5>假一赔十</h5>
+						<h5>廉正监督</h5>
+					</li>
+					<li class="foottip">
+						<h4>新手指南</h4>
+						<h5>购物流程</h5>
+						<h5>支付方式</h5>
+						<h5>通关税费</h5>
+						<h5>常见问题</h5>
+					</li>
+					<li class="foottip">
+						<h4>售后服务</h4>
+						<h5>售后政策</h5>
+						<h5>退货流程</h5>
+						<h5>特色服务</h5>
+						<h5>联系客服</h5>
+					</li>
+					<li class="foottip">
+						<h4>物流配送</h4>
+						<h5>配送方式</h5>
+						<h5>配送服务</h5>
+						<h5>运费标准</h5>
+						<h5>物流跟踪</h5>
+					</li>
+					<li class="foottip">
+						<h4>商家服务</h4>
+						<h5>招商合作</h5>
+						<h5>销售联盟</h5>
+						<h5>商家成长</h5>
+					</li>
+					<li class="foottip">
+						<h4>关于我们</h4>
+						<h5>联系我们</h5>
+						<h5>CEO邮箱</h5>
+						<h5>线下店</h5>
+					</li>
+					<li class="photogoottip">
+						<img src="img/kaola.png" />
+						<span>扫描下载手机版</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--底部第三行代码段-->
+		<div class="lastfoot">
+			<div class="first_lastfoot">
+				<a>隐私政策</a>
+				<span>-</span>
+				<a>考拉海购</a>
+				<br />
+			</div>
+			<div class="second_lastfoot">
+				<span>增值电信业务经营许可证：浙B2-20160288</span>
+				<span>自营经营者信息 </span>
+				<span>（浙）网械平台备字[2018]第00007号</span>
+			<br />
+			</div>
+			<div class="third_lastfoot">
+				<a><img src="img/Policestation.png"/></a>
+				<a><span>浙公网安备 33010802002216号</span></a>
+				<span>阿里巴巴版权所有©2003-2020</span>
+				<a><span>互联网药品信息服务资格证书编号（浙）-2017-0027</span></a>
+				<a><span>浙ICP备16011229号</span></a>
+			</div>
+			<div class="fourth_lastfoot">
+				<span><a><img src="img/Idverification.png"/></a></span>
+				<a><img src="img/Policestation1.png"/></a>
+			</div>
+		</div>
+		
+	</div>
+	
+	</body>
+</html>
