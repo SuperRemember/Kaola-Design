@@ -1,0 +1,367 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+/**********************************顶部轮播图CSS代码段*************************************/
+.headBanner{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.list{
+	padding: 0;
+	list-style: none;
+	margin: 0;
+}
+
+.list li{
+	width: 100%;
+}
+
+.list li img{
+	width: 100%;
+	cursor: pointer;
+}
+
+.item{
+	opacity: 0;
+	position: absolute;	
+    transition: all .8s;
+}
+
+.item.active{
+	opacity: 1;
+	z-index: 5;
+}
+
+/**********************************顶部head的CSS代码段*************************************/
+.head{
+	width: 986px;
+	height: 100px;
+	margin: 0 auto;
+	padding-top: 90px;
+}
+
+.head a img{
+	cursor: pointer;
+	padding-top: 30px;
+	float: left;
+}
+
+.head img{
+	float: right;
+}
+
+/**********************************中部表单CSS代码段*************************************/
+.contentbg{
+	background-color: #f8f8f8;
+}
+
+.content{
+	height: 550px;
+	width: 986px;
+	background: url(../img/loginbg.png) 0 78px no-repeat;
+	margin: 0 auto;
+}
+
+.login{
+	background: white;
+	width: 500px;
+	float: right;
+	outline: 1px solid #EAEAEA;
+	margin-top: 78px;
+}
+
+.loginleft{
+	float: left;
+	width: 350px;
+	border-right: 1px solid #EAEAEA;;
+}
+
+.loginleft h3{
+	width: 270px;
+	margin: 28px auto;
+	font-size: 22px;
+}
+
+.loginleft h3 a{
+	float: right;
+	font-size: 14px;
+	margin-top: 6px;
+}
+
+.loginleft form{
+	width: 270px;
+	margin: 0 auto;
+}
+
+.user{
+	width: 268px;
+	height: 28px;
+	line-height: 30px;
+	border: 1px solid #EAEAEA;
+	margin-top: 24px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.user label{
+	width: 36px;
+	height: 26px;
+	border-right: 1px solid #EAEAEA;
+	float: left;
+	background: url(../img/loginuser.png) center no-repeat;
+}
+
+.user input{
+	padding: 0;
+	padding-left: 12px;
+	border: none;
+	width: 218px;
+	height: 28px;
+	float: left;
+	font-size: 12px;
+	outline: medium;
+}
+
+.user i{
+	width: 18px;
+	height: 18px;
+	left: 240px;
+	position: absolute;
+	cursor: pointer;
+	top: 5px;
+	background: url(../img/xx.png) no-repeat;
+	display: none;
+}
+
+.password{
+	width: 268px;
+	height: 28px;
+	border: 1px solid #EAEAEA;
+	margin-top: 12px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.password label{
+	width: 36px;
+	height: 26px;
+	border-right: 1px solid #EAEAEA;
+	float: left;
+	background: url(../img/password.png) center no-repeat;
+}
+
+.password input{
+	padding: 0;
+	padding-left: 12px;
+	border: none;
+	width: 218px;
+	height: 28px;
+	float: left;
+	font-size: 12px;
+	outline: medium;
+}
+
+.password i{
+	width: 18px;
+	height: 18px;
+	left: 240px;
+	position: absolute;
+	cursor: pointer;
+	top: 5px;
+	background: url(../img/xx.png) no-repeat;
+	display: none;
+}
+
+#error{
+	color: #ff5758;
+	width: 248px;
+	height: 18px;
+	line-height: 18px;
+	padding: 10px 0;
+	padding-left:20px;
+	background: url(../img/xx1.png) left no-repeat;
+	font-size: 12px;
+	margin: 0;
+	display: none;
+}
+
+.forget{
+	width: 270px;
+	height: 20px;
+	line-height: 20px;
+	margin: 20px 0;
+	padding: 0;
+	font-size: 12px;
+}
+
+.checkBox{
+	width: 12px;
+	height: 12px;
+	border: 1px solid #EAEAEA;
+	float: left;
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+.checkBox img{
+	display: none;
+	position: absolute;
+}
+
+.forget span{
+	margin-left: 6px;
+	float: left;
+	cursor: pointer;
+}
+
+.forget a{
+	color: #666666;
+	font-size: 11px;
+	float: right;
+	cursor: pointer;
+}
+
+.forget a:hover{
+	color: #d22147;
+}
+
+.btn{
+	font-size: 14px;
+	display: block;
+	width: 270px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	background: #d22147;
+	text-align: center;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #f5345e;
+}
+
+
+.loginleft ul{
+	width: 350px;
+	height: 45px;
+	border: 1px solid #EAEAEA;
+	line-height: 45px;
+	text-align: center;
+}
+
+.loginleft ul img{
+	height: auto;
+	width: 250px;
+	vertical-align: middle;
+}
+
+.loginleft form a:nth-child(6){
+	font-size: 12px;
+	color:  #666666;
+	margin-left:25px ;
+}
+
+.loginright{
+	width: 148px;
+	float: right;
+}
+
+.loginright dl{
+	width: 126px;
+	height: 156px;
+	margin: 92px auto;
+	text-align: center;
+}
+
+.loginright dl dt{
+	width: 104px;
+	height: 104px;
+	margin: 0 auto;
+	border: 1px solid #EAEAEA;
+}
+
+.loginright dl dt img{
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+.loginright dl dd{
+	margin: 0;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.loginright dl dd p{
+	margin: 0;
+	color: #d22147;
+	font-size: 12px;
+}
+
+/**********************************底部表单CSS代码段*************************************/
+.footer{
+	width: 1000px;
+	height: 150px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 12px;
+	line-height: 26px;
+}
+
+.first_lastfoot{
+	margin-top: 30px;
+}
+
+.first_lastfoot a:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.second_lastfoot span{
+	margin-left: 20px;
+}
+
+.second_lastfoot span:nth-child(2):hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.third_lastfoot a:hover{
+	text-decoration: underline;
+	cursor: pointer
+}
+
+.third_lastfoot span:nth-child(3){
+	margin-left: 20px;
+}
+
+.third_lastfoot a:nth-child(n+3) span{
+	margin-left: 20px;
+}
+
+.fourth_lastfoot span a img{
+	margin-top: 5px;
+	border-radius: 5px;
+	width: 80px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.fourth_lastfoot a img{
+	margin: 5px 0px 0px 10px;
+	border-radius: 5px;
+	width: 27px;
+	height: 30px;
+	cursor: pointer;
+}
+
